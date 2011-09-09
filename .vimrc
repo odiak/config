@@ -26,6 +26,9 @@ set novisualbell
 set clipboard+=unnamed
 
 
+map :tn :tabnew
+map :qr :QuickRun
+
 
 command!   Mouse call s:Mouse()
 command! NoMouse call s:NoMouse()
@@ -101,7 +104,7 @@ function! s:Gpp()
 	endif
 
 endfunction
-1
+
 
 
 command! Python call s:Python()
