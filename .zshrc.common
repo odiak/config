@@ -19,8 +19,8 @@ esac
 
 alias zshrc='source ~/.zshrc'
 alias vi='vim'
-alias ls='ls -G'
-alias ll='ls -G -l'
+alias ls='ls -G --color'
+alias ll='ls -G --color -l'
 
 setopt auto_cd
 setopt auto_pushd
