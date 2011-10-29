@@ -4,6 +4,7 @@ autoload -U colors
 colors
 autoload -U promptinit
 promptinit
+autoload -U zed
 
 export LANG=ja_JP.UTF-8
 
