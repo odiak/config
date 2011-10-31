@@ -1,3 +1,4 @@
+set whichwrap=b,s,h,l,>,<,[,]
 set showmatch
 set tabstop=4
 set number
@@ -7,8 +8,16 @@ set shiftwidth=4
 set backspace=indent,eol,start
 set fileencoding=utf-8
 set encoding=utf-8
+set expandtab
+set smarttab
+set smartindent
 
 let g:neocomplcache_enable_at_startup = 1
+
+"空行のインデントを削除しないようにする
+nnoremap o oX<C-h>
+nnoremap O OX<C-h>
+inoremap <CR> <CR>X<C-h>
 
 set number
 syntax on
