@@ -17,11 +17,20 @@ kterm*|xterm)
 esac
 
 
+case "${OSTYPE}" in
+darwin*)
+    alias ls='ls -G -w'
+    ;;
+linux*)
+    alias ls='ls --color'
+    ;;
+esac
+
 alias zshrc='source ~/.zshrc'
 alias vi='vim'
-alias ls='ls -G --color'
-alias ll='ls -G --color -l'
-alias ll.='l. -l'
+alias ll='ls -l'
+alias l.='ls -d .*'
+alias ll.='ls -l -d .*'
 
 setopt auto_cd
 setopt auto_pushd
@@ -43,5 +52,3 @@ function mkcd () {
     mkdir $1
     cd $1
 }
-
-##
