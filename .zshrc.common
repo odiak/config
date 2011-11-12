@@ -32,6 +32,8 @@ alias ll='ls -l'
 alias l.='ls -d .*'
 alias ll.='ls -l -d .*'
 
+alias ssh_odiak='ssh kaido@odiak.net -p 10022'
+
 setopt auto_cd
 setopt auto_pushd
 setopt correct
