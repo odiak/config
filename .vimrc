@@ -3,7 +3,7 @@ set showmatch
 set tabstop=4
 set number
 set autoindent
-set cindent
+set nocindent
 set shiftwidth=4
 set backspace=indent,eol,start
 set fileencoding=utf-8
@@ -15,13 +15,13 @@ set title
 set showtabline=1
 set tabpagemax=30
 set tags=tags
-
-
+set nocompatible
 syntax on
-
+filetype on
 
 let g:neocomplcache_enable_at_startup = 1
 
+filetype plugin on
 
 "空行のインデントを削除しないようにする
 nnoremap o oX<C-h>
@@ -31,7 +31,7 @@ inoremap <CR> <CR>X<C-h>
 
 "マウスを有効にする
 if has("mouse")
-	se mouse=a
+	set mouse=a
 endif
 
 
@@ -42,6 +42,21 @@ set novisualbell
 
 "クリップボードを共有
 set clipboard=autoselect,unnamed
+
+
+"help
+helptags ~/.vim/doc
+
+
+"zen-coding
+let g:user_zen_settings = {'indentation': '    '}
+
+
+let g:AutoClosePairs = {'(': ')', '[': ']', '"': '"', "'": "'"}
+
+
+let g:closetag_html_style=1
+autocmd Filetype html,xml,xsl,htmldjango source ~/.vim/scripts/closetag.vim 
 
 
 map tn :tabnew
@@ -96,21 +111,6 @@ function! s:Rename(fname)
     endif
 endfunction
 
-
-inoremap ( ()<ESC>i
-inoremap <expr> ) ClosePair(')')
-inoremap { {}<ESC>i
-inoremap <expr> } ClosePair('}')
-inoremap [ []<ESC>i
-inoremap <expr> ] ClosePair(']')
-
-function! ClosePair(char)
-	if getline('.')[col('.') - 1] == a:char
-		return "\<Right>"
-	else
-		return a:char
-	endif
-endf
 
 
 if has('mac')
