@@ -6,6 +6,7 @@ autoload -U promptinit
 promptinit
 autoload -U zed
 
+
 case "${TERM}" in
 kterm*|xterm)
 	precmd(){
@@ -33,7 +34,6 @@ alias ll.='ls -l -d .*'
 setopt auto_cd
 setopt auto_pushd
 setopt correct
-
 
 PROMPT="%{${fg[blue]}%}[%n@%M]%(!.#.$) %{${reset_color}%}"
 PROMPT2="%{${fg[blue]}%}%_> %{${reset_color}%}"
