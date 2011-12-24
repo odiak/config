@@ -19,7 +19,10 @@ set nocompatible
 syntax on
 filetype on
 
+
 let g:neocomplcache_enable_at_startup = 1
+imap <silent> <C-n> <Plug>(neocomplcache_snippets_expand)
+smap <silent> <C-n> <Plug>(neocomplcache_snippets_expand)
 
 filetype plugin on
 
