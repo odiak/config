@@ -3,7 +3,7 @@ set showmatch
 set tabstop=4
 set number
 set autoindent
-set cindent
+set nocindent
 set shiftwidth=4
 set backspace=indent,eol,start
 set fileencoding=utf-8
@@ -11,135 +11,129 @@ set encoding=utf-8
 set expandtab
 set smarttab
 set smartindent
+set title
+set showtabline=1
+set tabpagemax=30
+set tags=tags
+set nocompatible
+syntax on
+filetype on
+
 
 let g:neocomplcache_enable_at_startup = 1
+imap <silent> <C-n> <Plug>(neocomplcache_snippets_expand)
+smap <silent> <C-n> <Plug>(neocomplcache_snippets_expand)
+
+filetype plugin on
 
 "空行のインデントを削除しないようにする
 nnoremap o oX<C-h>
 nnoremap O OX<C-h>
 inoremap <CR> <CR>X<C-h>
 
-set number
-syntax on
 
 "マウスを有効にする
 if has("mouse")
 	set mouse=a
 endif
 
+
 "エラー時のベルを抑制
 set noerrorbells
 set novisualbell
 
+
 "クリップボードを共有
-set clipboard+=unnamed
+set clipboard=autoselect,unnamed
 
 
-map :tn :tabnew
-map :qr :QuickRun
+"help
+helptags ~/.vim/doc
+
+
+"zen-coding
+let g:user_zen_settings = {'indentation': '    '}
+
+
+let g:AutoClosePairs = {'(': ')', '[': ']', '"': '"', "'": "'"}
+
+
+let g:closetag_html_style=1
+autocmd Filetype html,xml,xsl,htmldjango source ~/.vim/scripts/closetag.vim 
+
+
+map tn :tabnew
+map te :tabedit
+map tc :tabclose
 
 
 command!   Mouse call s:Mouse()
 command! NoMouse call s:NoMouse()
 
-function s:Mouse()
+"mouse on
+function! s:Mouse()
 	if has("mouse")
 		set mouse=a
 	endif
 endfunction
 
-function s:NoMouse()
+"mouse off
+function! s:NoMouse()
 	if has("mouse")
 		set mouse=
 	endif
 endfunction
 
 
-
+"keytest
 command! Key call s:KeyTest()
 
-function s:KeyTest()
+function! s:KeyTest()
 	echo getchar()
 endfunction
 
 
+"exec.vim
+map ex :Exec
 
-command! Gcc call s:Gcc()
 
-function! s:Gcc()
-	w
-	let fname=expand("%")
-	let command="gcc " . fname . " -o " . fname . ".out 2>&1"
-	let res=system(command)
-	let y = 121
-	let n = 110
-	let key = y
+"Rename the file
+command! -nargs=1 Rename call s:Rename(<f-args>)
 
-	if strlen(res) > 0
-		echo res
-		echo " "
-		echo "continue? [y/n]:"
-		let key = getchar()
-	endif
-
-	if key == y
-		:! `echo % | sed "s/^\([^\/]\)/.\/\1/g"`.out
-	endif
-
+function! s:Rename(fname)
+    w
+    let oldfile = expand('%:p')
+    let dir     = expand('%:p:h')
+    let newfile = dir . '/' . a:fname
+    let res     = system('mv ' . oldfile . ' ' . newfile . ' 2>&1')
+    if strlen(res) > 0
+        echo 'Rename was failed.'
+    else
+        echo ''
+        execute ':e ' . newfile
+    endif
 endfunction
 
 
 
-command! Gpp call s:Gpp()
-
-function! s:Gpp()
-	w
-	let fname=expand("%")
-	let command="g++ " . fname . " -o " . fname . ".out 2>&1"
-	let res=system(command)
-	let y = 121
-	let n = 110
-	let key = y
-
-	if strlen(res) > 0
-		echo res
-		echo " "
-		echo "continue? [y/n]:"
-		let key = getchar()
-	endif
-
-	if key == y
-		:! `echo % | sed "s/^\([^\/]\)/.\/\1/g"`.out
-	endif
-
-endfunction
-
-
-
-command! Python call s:Python()
-
-function! s:Python()
-	w
-	:! python %
-endfunction
-
-
-
-
-
-
-inoremap ( ()<ESC>i
-inoremap <expr> ) ClosePair(')')
-inoremap { {}<ESC>i
-inoremap <expr> } ClosePair('}')
-inoremap [ []<ESC>i
-inoremap <expr> ] ClosePair(']')
-
-function ClosePair(char)
-	if getline('.')[col('.') - 1] == a:char
-		return "\<Right>"
-	else
-		return a:char
-	endif
-endf
+if has('mac')
+    function! Pbcopy(type, ...)
+        let reg_save = @@
+        if a:0
+            silent execute "normal! `<" . a:type . "`>y"
+        elseif a:type == 'line'
+            silent execute "normal! '[V']y"
+        elseif a:type == 'block'
+            silent execute "normal! `[\<C-V>`]y"
+        else
+            silent execute "normal! `[v`]y"
+        endif
+        call system('iconv -f utf-8 -t shift-jis | pbcopy', @@)
+        let @@ = reg_save
+    endfunction
+    nnoremap <silent> <Space>y :<C-u>set opfunc=Pbcopy<CR>g@
+    nnoremap <silent> <Space>yy :<C-u>set opfunc=Pbcopy<CR>g@g@
+    vnoremap <silent> <Space>y :<C-u>call Pbcopy(visualmode(), 1)<CR>
+    nnoremap <silent> <Space>p :<C-u>r !pbpaste<CR>
+endif
 
