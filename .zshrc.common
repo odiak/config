@@ -6,10 +6,7 @@ autoload -U promptinit
 promptinit
 autoload -U zed
 
-<<<<<<< HEAD
 export LANG=en_US.UTF-8
-=======
->>>>>>> dc39c8ed601951458d05052c38e0380b49a25feb
 
 case "${TERM}" in
 kterm*|xterm)
