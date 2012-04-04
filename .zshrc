@@ -1,3 +1,6 @@
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+[ -f ~/profile ] && source ~/profile
+
 autoload -U compinit
 compinit
 autoload -U colors
