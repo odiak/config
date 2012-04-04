@@ -3,6 +3,13 @@ if filereadable(expand('~/.vimrc.local'))
 endif
 
 
+filetype off
+
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+set helpfile=$VIMRUNTIME/doc/help.txt
+
+
 set whichwrap=b,s,h,l,>,<,[,]
 set showmatch
 set tabstop=4
