@@ -1,3 +1,8 @@
+if filereadable(expand('~/.vimrc.local'))
+    source ~/.vimrc.local
+endif
+
+
 set whichwrap=b,s,h,l,>,<,[,]
 set showmatch
 set tabstop=4
@@ -55,7 +60,7 @@ helptags ~/.vim/doc
 let g:user_zen_settings = {'indentation': '    '}
 
 
-let g:AutoClosePairs = {'(': ')', '[': ']', '"': '"', "'": "'"}
+let g:AutoClosePairs = {'(': ')', '[': ']', '"': '"', "'": "'", '{': '}'}
 
 
 let g:closetag_html_style=1
@@ -116,24 +121,24 @@ endfunction
 
 
 
-if has('mac')
-    function! Pbcopy(type, ...)
-        let reg_save = @@
-        if a:0
-            silent execute "normal! `<" . a:type . "`>y"
-        elseif a:type == 'line'
-            silent execute "normal! '[V']y"
-        elseif a:type == 'block'
-            silent execute "normal! `[\<C-V>`]y"
-        else
-            silent execute "normal! `[v`]y"
-        endif
-        call system('iconv -f utf-8 -t shift-jis | pbcopy', @@)
-        let @@ = reg_save
-    endfunction
-    nnoremap <silent> <Space>y :<C-u>set opfunc=Pbcopy<CR>g@
-    nnoremap <silent> <Space>yy :<C-u>set opfunc=Pbcopy<CR>g@g@
-    vnoremap <silent> <Space>y :<C-u>call Pbcopy(visualmode(), 1)<CR>
-    nnoremap <silent> <Space>p :<C-u>r !pbpaste<CR>
-endif
+"if has('mac')
+"    function! Pbcopy(type, ...)
+"        let reg_save = @@
+"        if a:0
+"            silent execute "normal! `<" . a:type . "`>y"
+"        elseif a:type == 'line'
+"            silent execute "normal! '[V']y"
+"        elseif a:type == 'block'
+"            silent execute "normal! `[\<C-V>`]y"
+"        else
+"            silent execute "normal! `[v`]y"
+"        endif
+"        call system('iconv -f utf-8 -t shift-jis | pbcopy', @@)
+"        let @@ = reg_save
+"    endfunction
+"    nnoremap <silent> <Space>y :<C-u>set opfunc=Pbcopy<CR>g@
+"    nnoremap <silent> <Space>yy :<C-u>set opfunc=Pbcopy<CR>g@g@
+"    vnoremap <silent> <Space>y :<C-u>call Pbcopy(visualmode(), 1)<CR>
+"    nnoremap <silent> <Space>p :<C-u>r !pbpaste<CR>
+"endif
 
