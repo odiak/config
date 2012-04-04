@@ -1,7 +1,6 @@
 #!/bin/sh
 
-cd `dirname ${1}`
-
-ln -s ~/.vimrc .vimrc
-ln -s ~/.vim .vim
-ln -s ~/.zshrc .zshrc
+path=`dirname ${0}`
+ln -s ${path}/.vimrc ~/.vimrc
+ln -s ${path}/.vim   ~/.vim
+ln -s ${path}/.zshrc ~/.zshrc
