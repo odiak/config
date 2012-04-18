@@ -28,6 +28,7 @@ set showtabline=1
 set tabpagemax=30
 set tags=tags
 set nocompatible
+set hidden
 syntax on
 filetype on
 
