@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Users/odiak'
-let g:netrw_dirhist_2='/Users/odiak/.subversion_IDEA'
-let g:netrw_dirhist_3='/Users/odiak/test'
-let g:netrw_dirhist_4='/Users/odiak'
-let g:netrw_dirhist_5='/Users/odiak/www/note.odiak.net'
-let g:netrw_dirhist_6='/Users/odiak/www/eplus/eplus-gym'
-let g:netrw_dirhist_7='/Users/odiak/www/eplus'
-let g:netrw_dirhist_8='/etc/sysconfig'
-let g:netrw_dirhist_9='/home/kaido/.vim'
+let g:netrw_dirhist_cnt =0
