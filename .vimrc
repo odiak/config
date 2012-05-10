@@ -33,6 +33,25 @@ syntax on
 filetype on
 
 
+noremap :um :<C-u>Unite file_mru -buffer-name=file_mru<CR>
+noremap :ur :<C-u>Unite register -buffer-name=register<CR>
+noremap :ub :<C-u>Unite buffer -buffer-name=buffer<CR>
+
+noremap :uf :<C-u>Unite file<CR>
+
+noremap :ufc :<C-u>Unite file -buffer-name=file<CR>
+noremap :ufcr :<C-u>Unite file_rec -buffer-name=file_rec<CR>
+
+noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
+noremap :uffr :<C-u>UniteWithBufferDir file_rec -buffer-name=file_rec<CR>
+
+nnoremap <C-b> :<C-u>Unite buffer -buffer-name=buffer<CR>
+
+
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+
+
 let g:neocomplcache_enable_at_startup = 1
 imap <silent> <C-n> <Plug>(neocomplcache_snippets_expand)
 smap <silent> <C-n> <Plug>(neocomplcache_snippets_expand)
