@@ -33,6 +33,10 @@ syntax on
 filetype on
 
 
+"let g:jellybeans_use_lowcolor_black = 0
+colorscheme desert
+
+
 noremap :um :<C-u>Unite file_mru -buffer-name=file_mru<CR>
 noremap :ur :<C-u>Unite register -buffer-name=register<CR>
 noremap :ub :<C-u>Unite buffer -buffer-name=buffer<CR>
