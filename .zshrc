@@ -34,6 +34,7 @@ alias vi='vim'
 alias ll='ls -l'
 alias l.='ls -d .*'
 alias ll.='ls -l -d .*'
+alias ipy='ipython'
 
 setopt auto_cd
 setopt auto_pushd

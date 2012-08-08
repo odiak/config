@@ -34,7 +34,7 @@ filetype on
 
 
 "let g:jellybeans_use_lowcolor_black = 0
-colorscheme desert
+""colorscheme desert
 
 
 noremap :um :<C-u>Unite file_mru -buffer-name=file_mru<CR>
