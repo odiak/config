@@ -14,6 +14,8 @@ setlocal comments=:#
 setlocal commentstring=#\ %s
 setlocal omnifunc=javascriptcomplete#CompleteJS
 
+setlocal shiftwidth=2
+
 " Enable CoffeeMake if it won't overwrite any settings.
 if !len(&l:makeprg)
   compiler coffee
