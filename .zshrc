@@ -1,3 +1,5 @@
+command -v fortune > /dev/null && fortune
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 [ -f ~/profile ] && source ~/profile
 
