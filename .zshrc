@@ -1,7 +1,7 @@
-command -v fortune > /dev/null && fortune
+## .zshrc
 
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
-[ -f ~/profile ] && source ~/profile
+
+bindkey -e
 
 autoload -U compinit
 compinit
@@ -24,18 +24,18 @@ esac
 
 case "${OSTYPE}" in
 darwin*)
-    alias ls='ls -G -w'
+    alias ls='ls -AGF'
     ;;
 linux*)
-    alias ls='ls --color'
+    alias ls='ls -AF --color'
     ;;
 esac
 
 alias zshrc='source ~/.zshrc'
 alias vi='vim'
-alias ll='ls -l'
+alias ll='ls -lh'
 alias l.='ls -d .*'
-alias ll.='ls -l -d .*'
+alias ll.='ls -lh -d .*'
 alias ipy='ipython'
 
 setopt auto_cd
