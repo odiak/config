@@ -12,10 +12,10 @@ set nocompatible
 set whichwrap=b,s,h,l,<,>,[,]
 set showmatch
 set tabstop=4
+set shiftwidth=4
 set number
 set autoindent
 set nocindent
-set shiftwidth=4
 set backspace=indent,eol,start
 set fileencoding=utf-8
 set encoding=utf-8
@@ -27,6 +27,10 @@ set showtabline=1
 set hidden
 syntax on
 filetype on
+
+augroup vimrc
+autocmd! FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+augroup END
 
 noremap :um :<C-u>Unite file_mru -buffer-name=file_mru<CR>
 noremap :ur :<C-u>Unite register -buffer-name=register<CR>
@@ -45,6 +49,9 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 let g:neocomplcache_enable_at_startup = 1
 imap <silent> <C-n> <Plug>(neocomplcache_snippets_expand)
 smap <silent> <C-n> <Plug>(neocomplcache_snippets_expand)
+
+hi Pmenu ctermbg=darkred
+hi PmenuSel ctermbg=red
 
 filetype plugin on
 
