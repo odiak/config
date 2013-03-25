@@ -37,6 +37,7 @@ alias ll='ls -lh'
 alias l.='ls -d .*'
 alias ll.='ls -lh -d .*'
 alias ipy='ipython'
+alias be='bundle exec'
 
 setopt auto_cd
 setopt auto_pushd
@@ -54,17 +55,6 @@ setopt hist_ignore_dups     # ignore duplication command history list
 #setopt share_history        # share command history data
 
 function mkcd () {
-    if [ -n "$1" ]; then
-        if [ -f $1 ]; then
-            echo "'$1' is already exist! (normal file)"
-        else
-            if [ ! -d $1 ]; then
-                mkdir $1
-            fi
-            cd $1
-        fi
-    else
-        echo 'mkcd [dirname]'
-    fi
+    mkdir $1 && cd $1
 }
 

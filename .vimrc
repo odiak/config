@@ -30,6 +30,7 @@ filetype on
 
 augroup vimrc
 autocmd! FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd! FileType eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
 noremap :um :<C-u>Unite file_mru -buffer-name=file_mru<CR>
