@@ -28,10 +28,19 @@ set hidden
 syntax on
 filetype on
 
+let g:NERDTreeWinPos = 'right'
+if has('vim_starting') && expand('%') == ''
+    autocmd VimEnter * NERDTree ./
+endif
+
 augroup vimrc
-autocmd! FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd! FileType eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd! FileType ruby,eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd! FileType html,css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
+
+autocmd BufNewFile,BufRead Gemfile set filetype=ruby
+autocmd BufNewFile,BufRead Rakefile set filetype=ruby
+autocmd BufNewFile,BufRead config.ru set filetype=ruby
 
 noremap :um :<C-u>Unite file_mru -buffer-name=file_mru<CR>
 noremap :ur :<C-u>Unite register -buffer-name=register<CR>
@@ -55,6 +64,17 @@ hi Pmenu ctermbg=darkred
 hi PmenuSel ctermbg=red
 
 filetype plugin on
+
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+endif
+
+let g:rsenseUseOmniFunc = 1
+
+if filereadable( expand('~/.vim/opt/rsense-0.3/bin/rsense') )
+    let g:rsenseHome = expand('~/.vim/opt/rsense-0.3')
+    let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+endif
 
 "空行のインデントを削除しないようにする
 nnoremap o oX<C-h>
