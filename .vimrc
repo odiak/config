@@ -35,7 +35,7 @@ endif
 
 augroup vimrc
 autocmd! FileType ruby,eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd! FileType html,css setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd! FileType html,css,javascript,jade setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby

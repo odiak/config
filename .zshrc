@@ -10,6 +10,7 @@ colors
 autoload -U promptinit
 promptinit
 autoload -U zed
+autoload -U zmv
 
 export LANG=en_US.UTF-8
 
@@ -38,6 +39,7 @@ alias l.='ls -d .*'
 alias ll.='ls -lh -d .*'
 alias ipy='ipython'
 alias be='bundle exec'
+alias serve='python -mSimpleHTTPServer'
 
 setopt auto_cd
 setopt auto_pushd
