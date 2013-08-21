@@ -29,9 +29,9 @@ syntax on
 filetype on
 
 let g:NERDTreeWinPos = 'right'
-if has('vim_starting') && expand('%') == ''
-    autocmd VimEnter * NERDTree ./
-endif
+"if has('vim_starting') && expand('%') == ''
+"    autocmd VimEnter * NERDTree ./
+"endif
 
 augroup vimrc
 autocmd! FileType ruby,eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -85,6 +85,16 @@ inoremap <CR> <CR>X<C-h>
 if has("mouse")
 	set mouse=a
 endif
+
+"inoremap <Up> <Nop>
+"inoremap <Down> <Nop>
+"inoremap <Left> <Nop>
+"inoremap <Right> <Nop>
+
+"nnoremap <Up> <Nop>
+"nnoremap <Down> <Nop>
+"nnoremap <Left> <Nop>
+"nnoremap <Right> <Nop>
 
 "エラー時のベルを抑制
 set noerrorbells
@@ -149,3 +159,12 @@ function! s:Rename(fname)
     endif
 endfunction
 
+
+if has('python')
+    let g:neocomplcache_clang_use_library = 1
+    let g:neocomplcache_clang_library_path ='/usr/lib'
+    let g:neocomplcache_max_list = 300
+    let g:neocomplcache_clang_user_options =
+        \ '-I /usr/include' .
+        \ '-I /usr/include/c++/4.2.1'
+endif
