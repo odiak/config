@@ -36,6 +36,7 @@ let g:NERDTreeWinPos = 'right'
 augroup vimrc
 autocmd! FileType ruby,eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd! FileType html,css,javascript,jade setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd! FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 augroup END
 
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby

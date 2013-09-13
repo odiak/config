@@ -37,7 +37,7 @@ alias vi='vim'
 alias ll='ls -lh'
 alias l.='ls -d .*'
 alias ll.='ls -lh -d .*'
-alias ipy='ipython'
+alias ipy='ipython --no-confirm-exit'
 alias be='bundle exec'
 alias serve='python -mSimpleHTTPServer'
 
