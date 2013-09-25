@@ -1,7 +1,3 @@
-if filereadable(expand('~/.vimrc.local'))
-    source ~/.vimrc.local
-endif
-
 filetype off
 
 call pathogen#runtime_append_all_bundles()
@@ -61,8 +57,8 @@ let g:neocomplcache_enable_at_startup = 1
 imap <silent> <C-n> <Plug>(neocomplcache_snippets_expand)
 smap <silent> <C-n> <Plug>(neocomplcache_snippets_expand)
 
-hi Pmenu ctermbg=darkred
-hi PmenuSel ctermbg=red
+"hi Pmenu ctermbg=darkred
+"hi PmenuSel ctermbg=red
 
 filetype plugin on
 
@@ -119,23 +115,6 @@ map tn :tabnew
 map te :tabedit
 map tc :tabclose
 
-command!   Mouse call s:Mouse()
-command! NoMouse call s:NoMouse()
-
-"mouse on
-function! s:Mouse()
-	if has("mouse")
-		set mouse=a
-	endif
-endfunction
-
-"mouse off
-function! s:NoMouse()
-	if has("mouse")
-		set mouse=
-	endif
-endfunction
-
 "keytest
 command! Key call s:KeyTest()
 
@@ -168,4 +147,9 @@ if has('python')
     let g:neocomplcache_clang_user_options =
         \ '-I /usr/include' .
         \ '-I /usr/include/c++/4.2.1'
+endif
+
+
+if filereadable(expand('~/.vimrc.local'))
+    source ~/.vimrc.local
 endif
