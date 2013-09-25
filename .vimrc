@@ -27,27 +27,26 @@ set clipboard=autoselect,unnamed
 set wildmenu
 set wildmode=full
 if has("mouse")
-	set mouse=a
+    set mouse=a
 endif
+set list
+set listchars=tab:>-,trail:.
 
 syntax on
 filetype on
 filetype plugin on
 
-let g:NERDTreeWinPos = 'right'
-"if has('vim_starting') && expand('%') == ''
-"    autocmd VimEnter * NERDTree ./
-"endif
+highlight NonText ctermfg=245
+highlight SpecialKey ctermfg=245
 
-augroup vimrc
+let g:NERDTreeWinPos = 'right'
+
 autocmd! FileType ruby,eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd! FileType html,css,javascript,jade setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd! FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-augroup END
-
-autocmd BufNewFile,BufRead Gemfile set filetype=ruby
-autocmd BufNewFile,BufRead Rakefile set filetype=ruby
-autocmd BufNewFile,BufRead config.ru set filetype=ruby
+autocmd! BufNewFile,BufRead Gemfile set filetype=ruby
+autocmd! BufNewFile,BufRead Rakefile set filetype=ruby
+autocmd! BufNewFile,BufRead config.ru set filetype=ruby
 
 noremap :um :<C-u>Unite file_mru -buffer-name=file_mru<CR>
 noremap :ur :<C-u>Unite register -buffer-name=register<CR>
@@ -81,11 +80,6 @@ if filereadable( expand('~/.vim/opt/rsense-0.3/bin/rsense') )
     let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 endif
 
-"空行のインデントを削除しないようにする
-nnoremap o oX<C-h>
-nnoremap O OX<C-h>
-inoremap <CR> <CR>X<C-h>
-
 "help
 helptags ~/.vim/doc
 
@@ -99,9 +93,4 @@ if has('python')
     let g:neocomplcache_clang_user_options =
         \ '-I /usr/include' .
         \ '-I /usr/include/c++/4.2.1'
-endif
-
-
-if filereadable(expand('~/.vimrc.local'))
-    source ~/.vimrc.local
 endif
