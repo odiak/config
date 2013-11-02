@@ -1,7 +1,6 @@
 filetype off
 
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+execute pathogen#infect()
 
 set helpfile=$VIMRUNTIME/doc/help.txt
 set nocompatible
