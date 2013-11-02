@@ -41,9 +41,10 @@ highlight SpecialKey ctermfg=245
 
 let g:NERDTreeWinPos = 'right'
 
-autocmd! FileType ruby,eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd! FileType html,css,javascript,jade setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd! FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd! FileType ruby,eruby setlocal sw=2 ts=2 sts=2
+autocmd! FileType html,css,javascript,jade setlocal sw=2 ts=2 sts=2
+autocmd! FileType python setlocal cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd! FileType coffee setlocal sw=2 ts=2 sts=2 commentstring=#\ %s
 autocmd! BufNewFile,BufRead Gemfile set filetype=ruby
 autocmd! BufNewFile,BufRead Rakefile set filetype=ruby
 autocmd! BufNewFile,BufRead config.ru set filetype=ruby
