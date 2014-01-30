@@ -14,12 +14,23 @@ autoload -U zmv
 
 export LANG=en_US.UTF-8
 
+load_if_exists () {
+    if [ -f "$1" ]; then
+        source $1
+    fi
+}
+
+# zsh-notify
+load_if_exists ~/.zsh.d/zsh-notify/notify.plugin.zsh
+export SYS_NOTIFIER=$(which terminal-notifier)
+export NOTIFY_COMMAND_COMPLETE_TIMEOUT=10
+
 case "${TERM}" in
 kterm*|xterm)
-	precmd(){
-		#echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-		echo -ne "\033]0;${USER}@${HOST}:${PWD}\007"
-	}
+    precmd(){
+        #echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+        echo -ne "\033]0;${USER}@${HOST}:${PWD}\007"
+    }
 esac
 
 
@@ -40,6 +51,7 @@ alias ll.='ls -lh -d .*'
 alias ipy='ipython --no-confirm-exit'
 alias be='bundle exec'
 alias serve='python -mSimpleHTTPServer'
+alias s='serve >/dev/null 2>&1 &'
 
 setopt auto_cd
 setopt auto_pushd

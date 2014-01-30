@@ -2,34 +2,35 @@ filetype off
 
 execute pathogen#infect()
 
-set helpfile=$VIMRUNTIME/doc/help.txt
-set nocompatible
-set whichwrap=b,s,h,l,<,>,[,]
-set showmatch
-set tabstop=4
-set shiftwidth=4
-set number
 set autoindent
-set nocindent
 set backspace=indent,eol,start
-set fileencoding=utf-8
+set binary noeol
+set clipboard=autoselect,unnamed
 set encoding=utf-8
 set expandtab
-set smarttab
-set smartindent
-set title
-set showtabline=1
+set fileencoding=utf-8
+set helpfile=$VIMRUNTIME/doc/help.txt
 set hidden
+set list
+set listchars=tab:>-,trail:.
+set nocindent
+set nocompatible
 set noerrorbells
 set novisualbell
-set clipboard=autoselect,unnamed
+set number
+set shiftwidth=4
+set showmatch
+set showtabline=1
+set smartindent
+set smarttab
+set tabstop=4
+set title
+set whichwrap=b,s,h,l,<,>,[,]
 set wildmenu
 set wildmode=full
 if has("mouse")
     set mouse=a
 endif
-set list
-set listchars=tab:>-,trail:.
 
 syntax on
 filetype on
@@ -40,22 +41,21 @@ highlight SpecialKey ctermfg=245
 
 let g:NERDTreeWinPos = 'right'
 
-autocmd! FileType ruby,eruby setlocal sw=2 ts=2 sts=2
-autocmd! FileType html,css,javascript,jade setlocal sw=2 ts=2 sts=2
+autocmd! FileType ruby,eruby,html,css,javascript,coffee,haml,jade,stylus,less,scss setlocal sw=2 ts=2 sts=2
 autocmd! FileType python setlocal cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd! FileType coffee setlocal sw=2 ts=2 sts=2 commentstring=#\ %s
+autocmd! FileType coffee setlocal commentstring=#\ %s sw=2 ts=2 sts=2
 autocmd! BufNewFile,BufRead Gemfile set filetype=ruby
 autocmd! BufNewFile,BufRead Rakefile set filetype=ruby
 autocmd! BufNewFile,BufRead config.ru set filetype=ruby
 
-noremap :um :<C-u>Unite file_mru -buffer-name=file_mru<CR>
-noremap :ur :<C-u>Unite register -buffer-name=register<CR>
-noremap :ub :<C-u>Unite buffer -buffer-name=buffer<CR>
-noremap :uf :<C-u>Unite file<CR>
-noremap :ufc :<C-u>Unite file -buffer-name=file<CR>
-noremap :ufcr :<C-u>Unite file_rec -buffer-name=file_rec<CR>
-noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
-noremap :uffr :<C-u>UniteWithBufferDir file_rec -buffer-name=file_rec<CR>
+" noremap :um :<C-u>Unite file_mru -buffer-name=file_mru<CR>
+" noremap :ur :<C-u>Unite register -buffer-name=register<CR>
+" noremap :ub :<C-u>Unite buffer -buffer-name=buffer<CR>
+" noremap :uf :<C-u>Unite file<CR>
+" noremap :ufc :<C-u>Unite file -buffer-name=file<CR>
+" noremap :ufcr :<C-u>Unite file_rec -buffer-name=file_rec<CR>
+" noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
+" noremap :uffr :<C-u>UniteWithBufferDir file_rec -buffer-name=file_rec<CR>
 
 nnoremap <C-b> :<C-u>Unite buffer -buffer-name=buffer<CR>
 
@@ -82,9 +82,6 @@ endif
 
 "help
 helptags ~/.vim/doc
-
-"zen-coding
-let g:user_zen_settings = {'indentation': '    '}
 
 if has('python')
     let g:neocomplcache_clang_use_library = 1
