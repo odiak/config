@@ -46,3 +46,6 @@
 [submodule ".vim/bundle/vital.vim"]
 	path = .vim/bundle/vital.vim
 	url = https://github.com/vim-jp/vital.vim.git
+[submodule ".zsh.d/zsh-notify"]
+	path = .zsh.d/zsh-notify
+	url = https://github.com/marzocchi/zsh-notify.git
