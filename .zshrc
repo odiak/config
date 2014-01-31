@@ -14,19 +14,13 @@ autoload -U zmv
 
 export LANG=en_US.UTF-8
 
-load_if_exists () {
-    if [ -f "$1" ]; then
-        source $1
-    fi
-}
 
 # zsh-notify
-load_if_exists ~/.zsh.d/zsh-notify/notify.plugin.zsh
+[ -f "~/.zsh.d/zsh-notify/notify-if-background" ] \
+    && source "~/.zsh.d/zsh-notify/notify.plugin.zsh"
 export SYS_NOTIFIER=$(which terminal-notifier)
 export NOTIFY_COMMAND_COMPLETE_TIMEOUT=10
 
-# z
-load_if_exists ~/.zsh.d/z/z.sh
 
 case "${TERM}" in
 kterm*|xterm)
@@ -35,6 +29,11 @@ kterm*|xterm)
         echo -ne "\033]0;${USER}@${HOST}:${PWD}\007"
     }
 esac
+
+
+# z
+[ -f "~/.zsh.d/z/z.sh" ] \
+    && source "~/.zsh.d/z/z.sh"
 
 
 case "${OSTYPE}" in
