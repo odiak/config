@@ -25,6 +25,9 @@ load_if_exists ~/.zsh.d/zsh-notify/notify.plugin.zsh
 export SYS_NOTIFIER=$(which terminal-notifier)
 export NOTIFY_COMMAND_COMPLETE_TIMEOUT=10
 
+# z
+load_if_exists ~/.zsh.d/z/z.sh
+
 case "${TERM}" in
 kterm*|xterm)
     precmd(){
