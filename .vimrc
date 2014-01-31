@@ -36,17 +36,20 @@ syntax on
 filetype on
 filetype plugin on
 
-highlight NonText ctermfg=245
-highlight SpecialKey ctermfg=245
-
-let g:NERDTreeWinPos = 'right'
-
 autocmd! FileType ruby,eruby,html,css,javascript,coffee,haml,jade,stylus,less,scss setlocal sw=2 ts=2 sts=2
 autocmd! FileType python setlocal cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd! FileType coffee setlocal commentstring=#\ %s sw=2 ts=2 sts=2
 autocmd! BufNewFile,BufRead Gemfile set filetype=ruby
 autocmd! BufNewFile,BufRead Rakefile set filetype=ruby
 autocmd! BufNewFile,BufRead config.ru set filetype=ruby
+
+
+" [NerdTree]
+
+let g:NERDTreeWinPos = 'right'
+
+
+" [unite.vim]
 
 " noremap :um :<C-u>Unite file_mru -buffer-name=file_mru<CR>
 " noremap :ur :<C-u>Unite register -buffer-name=register<CR>
@@ -59,8 +62,23 @@ autocmd! BufNewFile,BufRead config.ru set filetype=ruby
 
 nnoremap <C-b> :<C-u>Unite buffer -buffer-name=buffer<CR>
 
+let g:unite_enable_start_insert = 1
+
+nnoremap [unite] <Nop>
+nmap <Leader>f [unite]
+
+nnoremap [unite]u  :<C-u>Unite -no-split<Space>
+nnoremap <silent> [unite]f :<C-u>Unite file<CR>
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
+nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir file<CR>
+nnoremap <silent> [unite]r :<C-u>Unite register<CR>
+
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+
+
+" [neocomplecache]
 
 let g:neocomplcache_enable_at_startup = 1
 imap <silent> <C-n> <Plug>(neocomplcache_snippets_expand)
@@ -68,20 +86,12 @@ smap <silent> <C-n> <Plug>(neocomplcache_snippets_expand)
 
 "hi Pmenu ctermbg=darkred
 "hi PmenuSel ctermbg=red
+highlight NonText ctermfg=245
+highlight SpecialKey ctermfg=245
 
 if !exists('g:neocomplcache_omni_patterns')
     let g:neocomplcache_omni_patterns = {}
 endif
-
-let g:rsenseUseOmniFunc = 1
-
-if filereadable( expand('~/.vim/opt/rsense-0.3/bin/rsense') )
-    let g:rsenseHome = expand('~/.vim/opt/rsense-0.3')
-    let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-endif
-
-"help
-helptags ~/.vim/doc
 
 if has('python')
     let g:neocomplcache_clang_use_library = 1
@@ -90,4 +100,14 @@ if has('python')
     let g:neocomplcache_clang_user_options =
         \ '-I /usr/include' .
         \ '-I /usr/include/c++/4.2.1'
+endif
+
+
+" [rsense]
+
+let g:rsenseUseOmniFunc = 1
+
+if filereadable( expand('~/.vim/opt/rsense-0.3/bin/rsense') )
+    let g:rsenseHome = expand('~/.vim/opt/rsense-0.3')
+    let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 endif

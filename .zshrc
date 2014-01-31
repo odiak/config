@@ -57,6 +57,8 @@ setopt auto_cd
 setopt auto_pushd
 setopt correct
 
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
 PROMPT="%{${fg[blue]}%}[%n@%M]%(!.#.$) %{${reset_color}%}"
 PROMPT2="%{${fg[blue]}%}%_> %{${reset_color}%}"
 SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
