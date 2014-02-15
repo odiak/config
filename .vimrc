@@ -64,15 +64,22 @@ nnoremap <C-b> :<C-u>Unite buffer -buffer-name=buffer<CR>
 
 let g:unite_enable_start_insert = 1
 
-nnoremap [unite] <Nop>
-nmap <Leader>f [unite]
+" nnoremap [unite] <Nop>
+" nmap <Leader>f [unite]
 
-nnoremap [unite]u  :<C-u>Unite -no-split<Space>
-nnoremap <silent> [unite]f :<C-u>Unite file<CR>
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
-nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir file<CR>
-nnoremap <silent> [unite]r :<C-u>Unite register<CR>
+" nnoremap [unite]u  :<C-u>Unite -no-split<Space>
+" nnoremap <silent> [unite]f :<C-u>Unite file<CR>
+" nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+" nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
+" nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir file<CR>
+" nnoremap <silent> [unite]r :<C-u>Unite register<CR>
+
+nnoremap <Leader>u  :<C-u>Unite -no-split<Space>
+nnoremap <silent> <Leader>f :<C-u>Unite file<CR>
+nnoremap <silent> <Leader>b :<C-u>Unite buffer<CR>
+nnoremap <silent> <Leader>m :<C-u>Unite file_mru<CR>
+nnoremap <silent> <Leader>d :<C-u>UniteWithBufferDir file<CR>
+nnoremap <silent> <Leader>g :<C-u>Unite register<CR>
 
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>

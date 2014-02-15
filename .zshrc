@@ -16,9 +16,9 @@ export LANG=en_US.UTF-8
 
 
 # zsh-notify
-[ -f "~/.zsh.d/zsh-notify/notify-if-background" ] \
-    && source "~/.zsh.d/zsh-notify/notify.plugin.zsh"
-export SYS_NOTIFIER=$(which terminal-notifier)
+[ -f "$HOME/.zsh.d/zsh-notify/notify-if-background" ] \
+    && source "$HOME/.zsh.d/zsh-notify/notify.plugin.zsh"
+export SYS_NOTIFIER=$(which terminal-notifier > /dev/null)
 export NOTIFY_COMMAND_COMPLETE_TIMEOUT=10
 
 
@@ -32,8 +32,8 @@ esac
 
 
 # z
-[ -f "~/.zsh.d/z/z.sh" ] \
-    && source "~/.zsh.d/z/z.sh"
+[ -f "$HOME/.zsh.d/z/z.sh" ] \
+    && source "$HOME/.zsh.d/z/z.sh"
 
 
 case "${OSTYPE}" in
