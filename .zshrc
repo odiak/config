@@ -22,6 +22,11 @@ export SYS_NOTIFIER=$(which terminal-notifier > /dev/null)
 export NOTIFY_COMMAND_COMPLETE_TIMEOUT=10
 
 
+# bew_update_suggester
+[ -f "$HOME/config/brew_update_suggester.rb" ] \
+    && ruby "$HOME/config/brew_update_suggester.rb"
+
+
 case "${TERM}" in
 kterm*|xterm)
     precmd(){
