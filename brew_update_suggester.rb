@@ -2,7 +2,7 @@
 
 require 'date'
 
-exit if `which pry`.empty?
+exit if `which brew`.empty?
 
 last_update = DateTime.parse(File.stat(`brew --repository`.strip + '/.git').mtime.to_s)
 days = (DateTime.now - last_update).to_i
