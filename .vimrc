@@ -6,6 +6,7 @@ set autoindent
 set backspace=indent,eol,start
 set binary noeol
 set clipboard=autoselect,unnamed
+set colorcolumn=+1
 set encoding=utf-8
 set expandtab
 set fileencoding=utf-8
@@ -24,6 +25,7 @@ set showtabline=1
 set smartindent
 set smarttab
 set tabstop=4
+set textwidth=80
 set title
 set whichwrap=b,s,h,l,<,>,[,]
 set wildmenu
@@ -95,6 +97,7 @@ smap <silent> <C-n> <Plug>(neocomplcache_snippets_expand)
 "hi PmenuSel ctermbg=red
 highlight NonText ctermfg=245
 highlight SpecialKey ctermfg=245
+"highlight ColorColumn ctermbg=239
 
 if !exists('g:neocomplcache_omni_patterns')
     let g:neocomplcache_omni_patterns = {}
