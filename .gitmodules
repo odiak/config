@@ -4,3 +4,6 @@
 [submodule ".zsh.d/z"]
 	path = .zsh.d/z
 	url = https://github.com/rupa/z.git
+[submodule ".vim/bundle/neobundle.vim"]
+	path = .vim/bundle/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim
