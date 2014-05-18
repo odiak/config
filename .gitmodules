@@ -1,57 +1,6 @@
-[submodule ".vim/bundle/emmet-vim"]
-	path = .vim/bundle/emmet-vim
-	url = https://github.com/mattn/emmet-vim.git
-[submodule ".vim/bundle/vim-haml"]
-	path = .vim/bundle/vim-haml
-	url = https://github.com/tpope/vim-haml.git
-[submodule ".vim/bundle/neocomplcache.vim"]
-	path = .vim/bundle/neocomplcache.vim
-	url = https://github.com/Shougo/neocomplcache.vim.git
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule ".vim/bundle/neocomplcache-clang"]
-	path = .vim/bundle/neocomplcache-clang
-	url = https://github.com/Shougo/neocomplcache-clang.git
-[submodule ".vim/bundle/sudo.vim"]
-	path = .vim/bundle/sudo.vim
-	url = https://github.com/vim-scripts/sudo.vim.git
-[submodule ".vim/bundle/unite.vim"]
-	path = .vim/bundle/unite.vim
-	url = https://github.com/Shougo/unite.vim.git
-[submodule ".vim/bundle/vim-coffee-script"]
-	path = .vim/bundle/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule ".vim/bundle/vim-commentary"]
-	path = .vim/bundle/vim-commentary
-	url = https://github.com/tpope/vim-commentary.git
-[submodule ".vim/bundle/vim-endwise"]
-	path = .vim/bundle/vim-endwise
-	url = https://github.com/tpope/vim-endwise.git
-[submodule ".vim/bundle/vim-jade"]
-	path = .vim/bundle/vim-jade
-	url = https://github.com/digitaltoad/vim-jade.git
-[submodule ".vim/bundle/vim-less"]
-	path = .vim/bundle/vim-less
-	url = https://github.com/groenewege/vim-less.git
-[submodule ".vim/bundle/vim-quickrun"]
-	path = .vim/bundle/vim-quickrun
-	url = https://github.com/thinca/vim-quickrun.git
-[submodule ".vim/bundle/vim-ref"]
-	path = .vim/bundle/vim-ref
-	url = https://github.com/thinca/vim-ref.git
-[submodule ".vim/bundle/vim-stylus"]
-	path = .vim/bundle/vim-stylus
-	url = https://github.com/wavded/vim-stylus.git
-[submodule ".vim/bundle/vital.vim"]
-	path = .vim/bundle/vital.vim
-	url = https://github.com/vim-jp/vital.vim.git
 [submodule ".zsh.d/zsh-notify"]
 	path = .zsh.d/zsh-notify
 	url = https://github.com/marzocchi/zsh-notify.git
 [submodule ".zsh.d/z"]
 	path = .zsh.d/z
 	url = https://github.com/rupa/z.git
-[submodule ".vim/bundle/vim-slim"]
-	path = .vim/bundle/vim-slim
-	url = https://github.com/slim-template/vim-slim.git
