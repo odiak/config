@@ -15,11 +15,11 @@ autoload -U zmv
 export LANG=en_US.UTF-8
 
 
-# zsh-notify
-[ -f "$HOME/.zsh.d/zsh-notify/notify-if-background" ] \
-    && source "$HOME/.zsh.d/zsh-notify/notify.plugin.zsh"
-export SYS_NOTIFIER=$(which terminal-notifier > /dev/null)
-export NOTIFY_COMMAND_COMPLETE_TIMEOUT=10
+# # zsh-notify
+# [ -f "$HOME/.zsh.d/zsh-notify/notify-if-background" ] \
+#     && source "$HOME/.zsh.d/zsh-notify/notify.plugin.zsh"
+# export SYS_NOTIFIER=$(which terminal-notifier > /dev/null)
+# export NOTIFY_COMMAND_COMPLETE_TIMEOUT=10
 
 
 # bew_update_suggester
@@ -59,6 +59,7 @@ alias ipy='ipython --no-confirm-exit'
 alias be='bundle exec'
 alias serve='python -mSimpleHTTPServer'
 alias s='serve >/dev/null 2>&1 &'
+alias twy='tw --yes'
 
 setopt auto_cd
 setopt auto_pushd
