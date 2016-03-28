@@ -14,6 +14,8 @@ autoload -U zmv
 
 export LANG=en_US.UTF-8
 
+# typeset -U path PATH
+
 
 # # zsh-notify
 # [ -f "$HOME/.zsh.d/zsh-notify/notify-if-background" ] \
@@ -60,6 +62,13 @@ alias be='bundle exec'
 alias serve='python -mSimpleHTTPServer'
 alias s='serve >/dev/null 2>&1 &'
 alias twy='tw --yes'
+alias twp='cat | tw --pipe'
+which geeknote > /dev/null 2>&1 && \
+    alias gn='geeknote'
+alias g='git'
+alias pad='padrino'
+
+alias chrome-memory="echo $(($(ps aux|grep Chrome|awk '{s+=$6}END{print s}')/1e6))"
 
 setopt auto_cd
 setopt auto_pushd

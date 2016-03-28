@@ -1,4 +1,4 @@
 .DS_Store
-.vim/bundle/*
-!.vim/bundle/neobundle.vim
+.vim/plugged/*
+!.vim/plugged/.gitkeep
 .vim/.netrwhist
