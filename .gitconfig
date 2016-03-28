@@ -1,0 +1,44 @@
+[http]
+	sslVerify = false
+[user]
+	name = Kaido Iwamoto
+	email = h6824.kaido@gmail.com
+[color]
+	ui = auto
+[alias]
+	a = add
+	ap = add -p
+	au = add -u
+	b = branch -a
+	br = branch
+	cb = checkout -f
+	ch = checkout
+	ci = commit
+	cm = commit -m
+	co = checkout
+	cob = checkout -b
+	cp = cherry-pick
+	d = diff
+	ds = diff --staged
+	g = !git
+	git = !git
+	l = log --graph --pretty=format:'%Cred%h%Creset %s %C(bold blue)<%an>%Creset %Cgreen(%cd)%C(yellow)%d%Creset' --abbrev-commit --date=format:'%y-%m-%d %H:%M'
+	s = status --short --branch
+	st = status
+[core]
+	excludesfile = /Users/kaido/.gitignore
+	pager = less -r
+[push]
+	default = current
+[merge]
+	ff = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[pull]
+	ff = true
+[commit]
+	template = /Users/kaido/.git-commit-template
