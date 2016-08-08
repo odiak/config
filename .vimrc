@@ -235,11 +235,8 @@ let g:quickrun_config = {
             \   },
             \   "kotlin": {
             \       'exec': [
-            \           'kotlinc-jvm %s -d %s:p:r.jar',
-            \           'java -Xbootclasspath/a:' .
-            \               '$(brew --prefix kotlin)/libexec/lib/kotlin-runtime.jar:' .
-            \               '$(brew --prefix kotlin)/libexec/lib/kotlin-reflect.jar ' .
-            \               ' -jar %s:p:r.jar',
+            \           'kotlinc-jvm %o %s -d %s:p:r.jar -include-runtime',
+            \           '%c %s:p:r.jar'
             \       ],
             \       'tempfile': '%{tempname()}.kt',
             \       'hook/sweep/files': ['%S:p:r.jar'],
