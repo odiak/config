@@ -171,6 +171,7 @@ autocmd! BufNewFile,BufRead config.ru set filetype=ruby
 autocmd! BufNewFile,BufRead *.go set filetype=go
 autocmd! BufNewFile,BufRead *.ruby set filetype=ruby
 autocmd! BufNewFile,BufRead *.md set filetype=markdown
+autocmd! FileType go setlocal noexpandtab
 
 set background=light
 colorscheme solarized
