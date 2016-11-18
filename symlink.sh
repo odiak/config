@@ -1,9 +1,18 @@
-#!/bin/sh
+#!/bin/zsh
 
-path=`pwd`
-ln -s $path/.vimrc $HOME/.vimrc
-ln -s $path/.gvimrc $HOME/.gvimrc
-ln -s $path/.vim $HOME/.vim
-ln -s $path/.zshrc $HOME/.zshrc
-ln -s $path/.gitconfig $HOME/.gitconfig
-ln -s $path/.gitignore-global $HOME/.gitignore
+() {
+    local dir=`pwd`
+
+    function link() {
+        local file=$1
+        [[ -e "$HOME/$file" ]] || ln -s "$dir/$file" "$HOME/$file"
+    }
+
+    link .vimrc
+    link .gvimrc
+    link .vim
+    link .zshrc
+    link .zsh.d
+    link .gitconfig
+    link .gitignore-global
+}
