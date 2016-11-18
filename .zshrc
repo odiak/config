@@ -17,12 +17,11 @@ export LANG=en_US.UTF-8
 # typeset -U path PATH
 
 
-# # zsh-notify
-# [ -f "$HOME/.zsh.d/zsh-notify/notify-if-background" ] \
-#     && source "$HOME/.zsh.d/zsh-notify/notify.plugin.zsh"
-# export SYS_NOTIFIER=$(which terminal-notifier > /dev/null)
-# export NOTIFY_COMMAND_COMPLETE_TIMEOUT=10
+# zsh-notify
+[ -f "$HOME/.zsh.d/zsh-notify/notify.plugin.zsh" ] \
+    && source "$HOME/.zsh.d/zsh-notify/notify.plugin.zsh"
 
+zstyle ':notify:*' command-complete-timeout 15
 
 # bew_update_suggester
 [ -f "$HOME/config/brew_update_suggester.rb" ] \
