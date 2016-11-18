@@ -90,3 +90,6 @@ function mkcd () {
     mkdir $1 && cd $1
 }
 
+which rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
+
+export PATH="./vendor/bin:$PATH"
