@@ -1,5 +1,67 @@
 set nocompatible
-filetype off
+set autoindent
+set backspace=indent,eol,start
+set binary
+set clipboard=autoselect,unnamed
+set colorcolumn=81
+set cursorline
+set encoding=utf-8
+set expandtab
+set fileencoding=utf-8
+set helpfile=$VIMRUNTIME/doc/help.txt
+set hidden
+set incsearch
+set ignorecase
+set list
+set listchars=tab:>\ ,trail:.
+set nocindent
+set noeol
+set noerrorbells
+set novisualbell
+set number
+set nrformats=hex
+set ruler
+set shiftwidth=4
+set showcmd
+set showmatch
+set showtabline=1
+set smartcase
+set smartindent
+set smarttab
+set noswapfile
+set tabstop=4
+" set textwidth=80
+set title
+set whichwrap=b,s,h,l,<,>,[,]
+set wildmenu
+set wildmode=full
+set completeopt=menu,preview
+if has("mouse")
+    set mouse=a
+endif
+
+set modeline
+set laststatus=2
+set statusline=%<%f\ %m%r%h%w
+set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
+set statusline+=%=%l/%L,%c%V%8P
+
+augroup global
+    autocmd!
+    autocmd FileType ruby,eruby,html,css,javascript,coffee,haml,jade,stylus,less,scss,slim,yaml,crystal setlocal sw=2 ts=2 sts=2
+    autocmd FileType python setlocal cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType coffee setlocal commentstring=#\ %s sw=2 ts=2 sts=2
+    autocmd BufNewFile,BufRead Gemfile set filetype=ruby
+    autocmd BufNewFile,BufRead Rakefile set filetype=ruby
+    autocmd BufNewFile,BufRead config.ru set filetype=ruby
+    autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
+    autocmd BufNewFile,BufRead *.go set filetype=go
+    autocmd BufNewFile,BufRead *.ruby set filetype=ruby
+    autocmd BufNewFile,BufRead *.md set filetype=markdown
+    autocmd BufNewFile,BufRead *.tt set filetype=html
+    autocmd BufNewFile,BufRead *.psgi set filetype=perl
+    autocmd FileType go setlocal noexpandtab
+augroup END
 
 call plug#begin('~/.vim/plugged')
 Plug 'Shougo/unite.vim'
@@ -113,72 +175,8 @@ if has('lua')
     let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
 endif
 
-syntax on
-filetype on
-filetype plugin indent on
-
 call plug#end()
 
-set autoindent
-set backspace=indent,eol,start
-set binary
-set clipboard=autoselect,unnamed
-set colorcolumn=81
-set cursorline
-set encoding=utf-8
-set expandtab
-set fileencoding=utf-8
-set helpfile=$VIMRUNTIME/doc/help.txt
-set hidden
-set incsearch
-set ignorecase
-set list
-set listchars=tab:>\ ,trail:.
-set nocindent
-set noeol
-set noerrorbells
-set novisualbell
-set number
-set nrformats=hex
-set ruler
-set shiftwidth=4
-set showcmd
-set showmatch
-set showtabline=1
-set smartcase
-set smartindent
-set smarttab
-set noswapfile
-set tabstop=4
-" set textwidth=80
-set title
-set whichwrap=b,s,h,l,<,>,[,]
-set wildmenu
-set wildmode=full
-set completeopt=menu,preview
-if has("mouse")
-    set mouse=a
-endif
-
-set modeline
-set laststatus=2
-set statusline=%<%f\ %m%r%h%w
-set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
-set statusline+=%=%l/%L,%c%V%8P
-" set statusline+=%{fugitive#statusline()}
-
-autocmd! FileType ruby,eruby,html,css,javascript,coffee,haml,jade,stylus,less,scss,slim,yaml,crystal setlocal sw=2 ts=2 sts=2
-autocmd! FileType python setlocal cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd! FileType coffee setlocal commentstring=#\ %s sw=2 ts=2 sts=2
-autocmd! BufNewFile,BufRead Gemfile set filetype=ruby
-autocmd! BufNewFile,BufRead Rakefile set filetype=ruby
-autocmd! BufNewFile,BufRead config.ru set filetype=ruby
-autocmd! BufNewFile,BufRead *.go set filetype=go
-autocmd! BufNewFile,BufRead *.ruby set filetype=ruby
-autocmd! BufNewFile,BufRead *.md set filetype=markdown
-autocmd! BufNewFile,BufRead *.tt set filetype=html
-autocmd! BufNewFile,BufRead *.psgi set filetype=perl
-autocmd! FileType go setlocal noexpandtab
 
 set background=light
 colorscheme solarized
