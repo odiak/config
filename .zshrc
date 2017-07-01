@@ -93,3 +93,6 @@ function mkcd () {
 which rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
 
 export PATH="./vendor/bin:$PATH"
+
+
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"

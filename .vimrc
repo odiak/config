@@ -37,10 +37,10 @@ Plug 'TwitVim'
 "             \}
 Plug 'Shougo/vimshell.vim'
 " Plug 'cohama/lexima.vim'
-Plug 'haya14busa/incsearch.vim'
-map / <Plug>(incsearch-forward)
-map ? <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+"Plug 'haya14busa/incsearch.vim'
+" map / <Plug>(incsearch-forward)
+" map ? <Plug>(incsearch-backward)
+" map g/ <Plug>(incsearch-stay)
 
 Plug 'terryma/vim-multiple-cursors'
 
@@ -53,6 +53,10 @@ Plug 'mxw/vim-jsx'
 Plug 'udalov/kotlin-vim'
 
 Plug 'rhysd/vim-crystal'
+
+Plug 'leafgarland/typescript-vim'
+
+" Plug 'plasticboy/vim-markdown'
 
 
 if has('lua')
@@ -144,6 +148,7 @@ set showtabline=1
 set smartcase
 set smartindent
 set smarttab
+set noswapfile
 set tabstop=4
 " set textwidth=80
 set title
@@ -171,6 +176,8 @@ autocmd! BufNewFile,BufRead config.ru set filetype=ruby
 autocmd! BufNewFile,BufRead *.go set filetype=go
 autocmd! BufNewFile,BufRead *.ruby set filetype=ruby
 autocmd! BufNewFile,BufRead *.md set filetype=markdown
+autocmd! BufNewFile,BufRead *.tt set filetype=html
+autocmd! BufNewFile,BufRead *.psgi set filetype=perl
 autocmd! FileType go setlocal noexpandtab
 
 set background=light
@@ -278,3 +285,8 @@ endif
 "             \ " proprietary attribute \"v-" ]
 
 " let g:syntastic_ruby_checkers = ['rubocop']
+
+
+if filereadable(".vimrc.local")
+    source .vimrc.local
+endif
