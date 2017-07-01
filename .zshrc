@@ -16,13 +16,6 @@ export LANG=en_US.UTF-8
 
 # typeset -U path PATH
 
-
-# zsh-notify
-[ -f "$HOME/.zsh.d/zsh-notify/notify.plugin.zsh" ] \
-    && source "$HOME/.zsh.d/zsh-notify/notify.plugin.zsh"
-
-zstyle ':notify:*' command-complete-timeout 15
-
 # bew_update_suggester
 [ -f "$HOME/config/brew_update_suggester.rb" ] \
     && ruby "$HOME/config/brew_update_suggester.rb"
@@ -35,11 +28,6 @@ kterm*|xterm)
         echo -ne "\033]0;${USER}@${HOST}:${PWD}\007"
     }
 esac
-
-
-# z
-[ -f "$HOME/.zsh.d/z/z.sh" ] \
-    && source "$HOME/.zsh.d/z/z.sh"
 
 
 case "${OSTYPE}" in
