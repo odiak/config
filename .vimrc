@@ -1,6 +1,7 @@
 source <sfile>:p:h/.vimrc.tiny
 
 call plug#begin('~/.vim/plugged')
+
 Plug 'Shougo/unite.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/sudo.vim'
@@ -26,9 +27,7 @@ Plug 'digitaltoad/vim-jade'
 Plug 'altercation/vim-colors-solarized'
 Plug 'wting/rust.vim'
 Plug 'tyru/restart.vim'
-" Plug 'scrooloose/syntastic'
 Plug 'Shougo/neomru.vim'
-Plug 'TwitVim'
 " Plug 'marijnh/tern_for_vim', {
 "             \  'build': {
 "             \    'others': 'npm install'
@@ -56,6 +55,8 @@ Plug 'rhysd/vim-crystal'
 Plug 'leafgarland/typescript-vim'
 
 " Plug 'plasticboy/vim-markdown'
+
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 
 if has('lua')
@@ -140,8 +141,7 @@ au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
 
-if $GOROOT != ''
-    set rtp+=$GOROOT/misc/vim
+if $GOPATH != ''
     exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 endif
 

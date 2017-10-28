@@ -39,6 +39,7 @@ set completeopt=menu,preview
 if has("mouse")
     set mouse=a
 endif
+set ambiwidth=double
 
 set modeline
 set laststatus=2
@@ -60,7 +61,7 @@ augroup global
     autocmd BufNewFile,BufRead *.md set filetype=markdown
     autocmd BufNewFile,BufRead *.tt set filetype=html
     autocmd BufNewFile,BufRead *.psgi set filetype=perl
-    autocmd FileType go setlocal noexpandtab
+    autocmd FileType go setlocal noexpandtab nolist
 augroup END
 
 highlight NonText ctermfg=248
