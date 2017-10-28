@@ -1,5 +1,5 @@
 [http]
-	sslVerify = false
+	sslVerify = true
 [user]
 	name = Kaido Iwamoto
 	email = h6824.kaido@gmail.com
