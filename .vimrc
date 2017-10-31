@@ -58,6 +58,8 @@ Plug 'leafgarland/typescript-vim'
 
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
+Plug 'airblade/vim-gitgutter'
+
 
 if has('lua')
     Plug 'Shougo/neocomplete.vim'

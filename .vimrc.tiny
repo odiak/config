@@ -36,6 +36,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 set wildmenu
 set wildmode=full
 set completeopt=menu,preview
+set ambiwidth=double
 if has("mouse")
     set mouse=a
 endif

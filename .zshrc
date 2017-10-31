@@ -60,6 +60,7 @@ alias chrome-memory="echo $(($(ps aux|grep Chrome|awk '{s+=$6}END{print s}')/1e6
 setopt auto_cd
 setopt auto_pushd
 setopt correct
+setopt histignorespace
 
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
