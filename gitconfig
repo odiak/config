@@ -26,17 +26,10 @@
 	s = status --short --branch
 	st = status
 [core]
-	excludesfile = /Users/kaido/.gitignore
 	pager = less -r
 [push]
 	default = current
 [merge]
 	ff = false
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [pull]
 	ff = true

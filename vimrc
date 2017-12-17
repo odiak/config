@@ -1,4 +1,4 @@
-source <sfile>:p:h/.vimrc.tiny
+source <sfile>:p:h/vimrc.tiny
 
 call plug#begin('~/.vim/plugged')
 
