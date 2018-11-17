@@ -1,6 +1,6 @@
 source <sfile>:p:h/vimrc.tiny
 
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 
 Plug 'Shougo/unite.vim'
 Plug 'kien/ctrlp.vim'
@@ -119,7 +119,7 @@ call plug#end()
 
 
 set background=light
-colorscheme solarized
+" colorscheme solarized
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,.DS_Store
 let g:ctrlp_custom_ignore = '\v[\/](\.git|\.svn|vendor/bundle|node_modules)$'
