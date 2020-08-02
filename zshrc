@@ -64,10 +64,16 @@ setopt histignorespace
 
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
-PROMPT="%{${fg[blue]}%}[%n@%M]%(!.#.$) %{${reset_color}%}"
+PROMPT="%{${fg[blue]}%}[%n@%M] %~"$'\n'"%(!.#.$) %{${reset_color}%}"
 PROMPT2="%{${fg[blue]}%}%_> %{${reset_color}%}"
 SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
-RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
+# RPROMPT="%{${fg[blue]}%}[%D{%H:%M:%S}]%{${reset_color}%}"
+
+# setopt PROMPT_SUBST
+# TMOUT=1
+# TRAPALRM() {
+#     zle reset-prompt
+# }
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
