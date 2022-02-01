@@ -25,6 +25,7 @@
 	l = log --graph --pretty=format:'%Cred%h%Creset %s %C(bold blue)<%an>%Creset %Cgreen(%cd)%C(yellow)%d%Creset' --abbrev-commit --date=format:'%y-%m-%d %H:%M'
 	s = status --short --branch
 	st = status
+	sw = switch
 [core]
 	pager = less -r
 [push]
