@@ -64,3 +64,10 @@ function mkcd () {
 }
 
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
+
+function cd-ghq-peco () {
+    local repo=$(ghq list --full-path | peco)
+    if [ -n "$repo" ]; then
+        cd "$repo"
+    fi
+}
