@@ -35,3 +35,7 @@
 [pull]
 	ff = true
 	rebase = false
+
+[url "git@github.com:"]
+    insteadOf = git://github.com/
+    insteadOf = https:​//github.com/

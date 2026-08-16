@@ -3,13 +3,18 @@
 
 bindkey -e
 
+if type brew &>/dev/null && [ -d "$(brew --prefix)/share/zsh-completions" ]; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+    autoload -Uz compinit
+    compinit
+fi
 autoload -U compinit
 compinit
 autoload -U colors
 colors
 autoload -U promptinit
 promptinit
-autoload -U zed
+# autoload -U zed
 autoload -U zmv
 
 export LANG=en_US.UTF-8
