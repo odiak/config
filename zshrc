@@ -76,3 +76,34 @@ function cd-ghq-peco () {
         cd "$repo"
     fi
 }
+
+function code-ghq-peco () {
+    local repo=$(ghq list --full-path | peco)
+    if [ -n "$repo" ]; then
+        code "$repo"
+    fi
+}
+
+# Claude Desktop の Claude Code で、カレントディレクトリ（または引数のディレクトリ）を開く
+ccd() {
+  local dir=${1:-$PWD}
+  dir=${dir:a}  # 絶対パス化
+
+  if [[ ! -d $dir ]]; then
+    print -u2 "ccd: not a directory: $dir"
+    return 1
+  fi
+
+  # パスをURLエンコード（マルチバイト文字はバイト単位で %XX に）
+  local LC_ALL=C enc= c i
+  for (( i = 1; i <= ${#dir}; i++ )); do
+    c=${dir[i]}
+    if [[ $c == [A-Za-z0-9._~-] ]]; then
+      enc+=$c
+    else
+      enc+=$(printf '%%%02X' "'$c")
+    fi
+  done
+
+  open "claude://code/new?folder=${enc}"
+}
